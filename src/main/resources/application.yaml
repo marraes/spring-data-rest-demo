@@ -1,0 +1,25 @@
+server:
+  port: 8089
+
+spring:
+  main:
+    banner-mode: off
+  datasource:
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USER}
+    password: ${DATABASE_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: none
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+logging:
+  pattern:
+    console: '%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr([%t]){faint} %clr(%-40.40c{1.}){cyan} %clr(:){faint} %clr(%m%n${LOG_EXCEPTION_CONVERSION_WORD:%rEx})'
+  level:
+    org.springframework.web: error
+    io.provision: info
